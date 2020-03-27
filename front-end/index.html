@@ -5,13 +5,14 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Code Down</title>
+  <title>Code-Down</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-
-
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
   <!-- Google Fonts -->
   <link
@@ -47,7 +48,7 @@
     <div class="container d-flex">
 
       <div class="logo mr-auto">
-        <h1 class="text-light"><a href="index.html">Skill Up<span>.</span></a></h1>
+        <h1 class="text-light"><a href="index.html">Code-Down<span>.</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -57,7 +58,9 @@
           <li class="active"><a href="#header">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#team">Leaderboard</a></li>
-          <li class="get-started"><a data-toggle="modal" data-target="#signup">Participate</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li class="get-started"><a data-toggle="modal" data-target="#signup" style="cursor: pointer;">Participate</a>
+          </li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -70,9 +73,9 @@
     <div class="container">
       <div class="row d-flex align-items-center">
         <div class=" col-lg-6 py-5 py-lg-0 order-2 order-lg-1" data-aos="fade-right">
-          <h1>Your new technical experience with Skill Up</h1>
+          <h1>Your new technical experience with Code-Down</h1>
           <h2>may the source be with you</h2>
-          <a class="btn-get-started scrollto" data-toggle="modal" data-target="#signup">Participate</a>
+          <a data-toggle="modal" data-target="#signup" class="btn-get-started scrollto">Participate</a>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
           <img src="assets/img/hero-img.png" class="img-fluid" alt="">
@@ -82,22 +85,7 @@
     </div>
 
   </section><!-- End Hero -->
-  <div class="modal fade" id="signup" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
 
-        <div class="modal-body">
-          <p><a href="https://forms.gle/ZitMCnZPeu3ND2vGA">
-              <h4>SignUp with GoogleForm</h4>
-            </a></p>
-          <!-- <iframe src="https://forms.gle/ZitMCnZPeu3ND2vGA" frameborder="0"style="width:100%;"></iframe> -->
-
-
-        </div>
-
-      </div>
-    </div>
-  </div>
   <main id="main">
 
     <!-- ======= Clients Section ======= -->
@@ -117,7 +105,7 @@
               <p data-aos="fade-in">
                 For college students, this is a perfect time to enhance their technical knowledge and skills. 20 days
                 are sufficient to even start and complete a new technical course. So to support students OSS Club is
-                planning to organize “Skill Up”. A 30-day coding challenge.
+                planning to organize “Code-Down”. A 30-day coding challenge.
 
               </p>
 
@@ -137,57 +125,128 @@
     </section><!-- End About Section -->
 
     <!-- registration form  Section -->
-    <div class="regform">
-      <div class="row">
-        <div class="col-md-12">
-          <form action="index.html" method="post">
-            <h1> Registration form </h1>
-            <fieldset>
-              <label for="name">Name:</label>
-              <input type="text" id="name" name="user_name">
+    <div class="modal fade" id="signup" role="dialog">
+      <div class="modal-dialog modal-md" id="sign">
+        <div class="modal-content">
+          <!-- <span ><button >&times</button></span>  -->
+          <div class="modal-body">
+            <div class="regform" id="regform">
+              <div class="row">
+                <div class="col-md-12">
+                  <form id="register" onsubmit="register()" class="form form-group" method="POST">
+                    <h1> Registration form </h1>
+                    <fieldset>
+                      <label for="name">Name:</label>
+                      <input type="text" id="name" name="user_name" required>
+                      <label for="email">Email:</label>
+                      <input type="email" id="mail" name="user_email">
+                      <label for="gitHandle">GitHub HandleName :</label>
+                      <input type="text" id="gitHandle" name="gitHandle" required>
 
-              <label for="email">Email:</label>
-              <input type="email" id="mail" name="user_email">
+                      <label>Year:</label>
+                      <select class="form-control row" id="year" required>
+                        <option value="FE">FE</option>
+                        <option value="SE">SE</option>
+                        <option value="FE">TE</option>
+                        <option value="SE">BE</option>
+                      </select>
 
-              <label>Year:</label>
-              <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13"
-                class="light">FE</label>
-              <input type="radio" id="over_13" value="over_13" name="user_age"><label for="over_13"
-                class="light">SE</label>
-              <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13"
-                class="light">TE</label>
-              <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13"
-                class="light">BE</label>
+                      <label for="mentor">Register as Mentor Also :</label>
+                      <select class="form-control row" id="mentor" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
 
-              <label for="email"> Tech-Stack:</label>
-              <input type="text" id="mail" name="user_email">
-            </fieldset>
 
-            <button type="submit">Let's Begin</button>
-          </form>
+
+                      <label for="email"> Tech-Stack:</label>
+                      <input type="text" id="techStack" name="user_email" required>
+                    </fieldset>
+
+                    <button id="buton" type="submit">Let's Begin</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </div>
     </div>
+    </div>
 
 
+    <!--TimeLine starts-->
 
+    <div class="box">
+      <h1 style="color:white">Code-Down Timeline</h1>
+      <ul id="first-list">
+        <li>
+          <span></span>
+          <div class="title">Step 1</div>
+          <div class="info">Commencement of Code-Down</div>
+          <div class="name">28 March</div>
+          <div class="time">
 
+          </div>
+        </li>
+        <li>
+          <span></span>
+          <div class="title">Step 2</div>
+          <div class="info">Get Mentor Assigned</div>
+          <div class="name"></div>
+          <div class="time">
 
+          </div>
+        </li>
+        <li>
+          <span></span>
+          <div class="title">Step 3</div>
+          <div class="info">Start the Challenge</div>
+          <div class="name"></div>
+          <div class="time">
 
+          </div>
+        </li>
+        <li>
+          <span></span>
+          <div class="title">Step 4</div>
+          <div class="info">Discuss the Problem with Assigned mentors</div>
+          <div class="name"></div>
+          <div class="time">
+          </div>
+        </li>
+        <li>
+          <span></span>
+          <div class="title">Step 5</div>
+          <div class="info">Submissions for Mid-Term-Evaluations</div>
+          <div class="name">13 April</div>
+          <div class="time">
 
+          </div>
+        </li>
+        <li>
+          <span></span>
+          <div class="title">Step 6</div>
+          <div class="info">Submissions for End-Term-Evaluations</div>
+          <div class="name">23 April</div>
+          <div class="time">
+          </div>
+        </li>
+        <li>
+          <span></span>
+          <div class="title">Step 7</div>
+          <div class="info">End of the Challenge</div>
+          <div class="name"></div>
+          <div class="time">
 
+          </div>
+        </li>
 
-
-
-
-
-
-
-
-
-
-
-
+      </ul>
+    </div>
+    <!--Timeline ends-->
 
     <!-- ======= Team Section ======= -->
     <section id="team" class="team section-bg">
@@ -245,8 +304,8 @@
 
         <div class="row  justify-content-center">
           <div class="col-lg-6">
-            <h3>Skill Up</h3>
-            <p>It's Skill Up for 30 Days</p>
+            <h3>Code-Down</h3>
+            <p>It's Code-Down for 30 Days</p>
           </div>
         </div>
 
@@ -265,7 +324,7 @@
 
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        <strong><span>Skill Up</span></strong>
+        <strong><span>Code-Down</span></strong>
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
@@ -277,6 +336,43 @@
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+  <script>
+    // function register(e) {
+    //   e.prevetDefault();
+    //   var obj = {
+    //     name: document.getElementById('name').value,
+    //     email: document.getElementById('email').value,
+    //     username: document.getElementById('gitHandle').value,
+    //     year: document.getElementById('under_13').value,
+    //     mentor: document.getElementById('mentor').value,
+    //     techSack: document.getElementById('techStack').value
+    //   };
+    //   alert(obj);
+    // }
+
+    $("#register").submit(function (e) {
+
+      e.preventDefault();
+      var obj = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('mail').value,
+        username: document.getElementById('gitHandle').value,
+        year: document.getElementById('year').value,
+        mentor: document.getElementById('mentor').value,
+        techStack: document.getElementById('techStack').value
+      };
+
+
+      $.post("api/register", obj, function (data, status) {
+        if (data['success'])
+          alert("Registered Successfully!");
+        else
+          alert("Please Check Your Github Username Again!");
+      });
+
+    });
+
+  </script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>

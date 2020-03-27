@@ -4,10 +4,13 @@ const cheerio = require('cheerio');
 
 module.exports = {
     register: async (req, res) => {
+
         let name = req.body.name;
         let username = req.body.username;
         let year = req.body.year;
         let techStack = req.body.techStack;
+        let email = req.body.email;
+        let mentor = req.body.mentor;
         let response;
         let contribution;
 
@@ -21,7 +24,7 @@ module.exports = {
             data = data('body > div > div > h2').text();
             data = data.split(" ");
             contribution = data[6];
-            let query = `insert into Registration values (${sqlstring.escape(name)},${sqlstring.escape(username)},${sqlstring.escape(contribution)},${sqlstring.escape(year)},${sqlstring.escape(techStack)});`;
+            let query = `insert into Registration values (${sqlstring.escape(name)},${sqlstring.escape(username)},${sqlstring.escape(contribution)},${sqlstring.escape(year)},${sqlstring.escape(techStack)},${sqlstring.escape(email)},${sqlstring.escape(mentor)});`;
             db.query(query, (err, result) => {
                 if (err || result.rowsAffected[0] == 0) throw err;
                 res.send({ sucess: true });
