@@ -17,21 +17,24 @@ module.exports = {
         try {
             response = await axios.get(`https://api.github.com/users/${username}`);
             if (!response.data.login)
-                throw 'User Not Found';
-            let site = `https://github.com/users/${username}/contributions`;
+                throw new Error('User Not Found');
+            let site = `https://github.com/users/${username}/contributions?to=2020-03-28`;
             const result = await axios.get(site);
             let data = cheerio.load(result.data);
             data = data('body > div > div > h2').text();
+            console.log(data);
             data = data.split(" ");
             contribution = data[6];
             let query = `insert into Registration values (${sqlstring.escape(name)},${sqlstring.escape(username)},${sqlstring.escape(contribution)},${sqlstring.escape(year)},${sqlstring.escape(techStack)},${sqlstring.escape(email)},${sqlstring.escape(mentor)});`;
             db.query(query, (err, result) => {
-                if (err || result.rowsAffected[0] == 0) throw err;
-                res.send({ sucess: true });
+                if (err)
+                    res.send({ success: false });
+                else
+                    res.send({ success: true });
+
             })
         } catch (err) {
-            console.log(err)
-            res.end({ sucess: false });
+            console.log(err);
         }
     },
     leaderboard: async (req, res) => {
