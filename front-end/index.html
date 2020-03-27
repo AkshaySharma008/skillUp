@@ -351,7 +351,8 @@
     // }
 
     $("#register").submit(function (e) {
-
+      $('#buton').prop('disabled', true);
+      $('#buton').css('color', 'red');
       e.preventDefault();
       var obj = {
         name: document.getElementById('name').value,
@@ -364,12 +365,13 @@
 
 
       $.post("api/register", obj, function (data, status) {
-        if (data['success'])
+        console.log(data);
+        if (data.success)
           alert("Registered Successfully!");
         else
-          alert("Please Check Your Github Username Again!");
+          alert("Either Your username is wrong or You are already registered!");
       });
-
+      $('#buton').prop('disabled', false);
     });
 
   </script>
