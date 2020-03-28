@@ -54,7 +54,7 @@ module.exports = {
             `
             });
 
-            let query = `insert into Registration values (${sqlstring.escape(name)},${sqlstring.escape(username)},${sqlstring.escape(contribution)},${sqlstring.escape(year)},${sqlstring.escape(techStack)},${sqlstring.escape(email)},${sqlstring.escape(mentor)});`;
+            let query = `insert into Registration values (${sqlstring.escape(name)},${sqlstring.escape(username)},${sqlstring.escape(contribution)},${sqlstring.escape(year)},${sqlstring.escape(techStack)},${sqlstring.escape(email)},${sqlstring.escape(mentor)},0);`;
             db.query(query, (err, result) => {
                 if (err)
                     res.send({ success: false });
@@ -66,11 +66,11 @@ module.exports = {
         }
     },
     leaderboard: async (req, res) => {
-        let query = 'select github_username,contributions from Registration;';
+        let query = 'select github_username,contributions,year,mentor_points from Registration;';
         try {
             db.query(query, (err, result) => {
                 if (err) throw err;
-                res.send({ success: result.recordset })
+                res.send({ success: result.recordsets })
             })
         } catch (err) {
             console.log(err);

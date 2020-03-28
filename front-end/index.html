@@ -56,7 +56,7 @@
           <li><a href="#timeline">Timeline</a></li>
           <li><a href="./leaderboard.html">Leaderboard</a></li>
           <li><a href="#crew">Our Team</a></li>
-          <li><a href="#about">Document Guide</a></li>
+          <li class="get-started"><a href="https://docdro.id/3dTzns9">Development guide</a></li>
           <li class="get-started"><a data-toggle="modal" data-target="#signup" style="cursor: pointer;">Participate</a>
           </li>
         </ul>
@@ -77,6 +77,9 @@
 
           <h2><b style="color:gold;"> May the source be with you</b></h2>
           <a data-toggle="modal" data-target="#signup" class="btn-get-started scrollto">Participate</a>
+
+          <!-- <a href="#" class="btn-get-started scrollto">Development Guide</a> -->
+
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
           <img src="assets/img/hero-img.png" class="img-fluid" alt="">
@@ -135,7 +138,7 @@
             <div class="regform" id="regform">
               <div class="row">
                 <div class="col-md-12">
-                  <form id="register" onsubmit="register()" class="form form-group" method="POST">
+                  <form id="register" class="form form-group" method="POST">
                     <h1> Registration form </h1>
                     <fieldset>
                       <label for="name">Name:</label>
@@ -164,7 +167,7 @@
                       <input type="text" id="techStack" name="user_email" required>
                     </fieldset>
 
-                    <button id="buton" onclick="loading()" type="submit">Let's Begin</button>
+                    <button id="buton" type="submit">Let's Begin</button>
                   </form>
                 </div>
               </div>
@@ -306,7 +309,7 @@
 
               </div><!-- /.team-image -->
               <div class="team-content">
-                <div class="team-name"><a href="#">
+                <div class="team-name"><a href="https://www.facebook.com/profile.php?id=100012137503344">
                     <h5>Shudhanshu Joshi</h5>
                   </a></div>
                 <div class="team-role">Guiding Member</div>
@@ -322,7 +325,7 @@
                 </a>
               </div><!-- /.team-image -->
               <div class="team-content">
-                <div class="team-name"><a href="#">
+                <div class="team-name"><a href="https://www.facebook.com/Abhilashak2k?epa=SEARCH_BOX">
                     <h5>Abhilasha Kumari</h5>
                   </a></div>
                 <div class="team-role">Guiding Member</div>
@@ -338,7 +341,7 @@
                 </a>
               </div><!-- /.team-image -->
               <div class="team-content">
-                <div class="team-name"><a href="#">
+                <div class="team-name"><a href="https://www.facebook.com/kranthi.kiran99">
                     <h5>Kranthi Kiran</h5>
                   </a></div>
                 <div class="team-role">Guiding Member</div>
@@ -355,7 +358,7 @@
 
               </div><!-- /.team-image -->
               <div class="team-content">
-                <div class="team-name"><a href="#">
+                <div class="team-name"><a href="https://www.facebook.com/armish24">
                     <h5>Arpit Kumar Mishra</h5>
                   </a></div>
                 <div class="team-role">Guiding Member</div>
@@ -380,10 +383,10 @@
 
               </div><!-- /.team-image -->
               <div class="team-content">
-                <div class="team-name"><a href="#">
+                <div class="team-name"><a href="https://www.facebook.com/truelit95">
                     <h5>Satya Prakash</h5>
                 </div>
-                <div class="team-role">Developers</div>
+                <div class="team-role">Developer</div>
                 <div class="team-description"></div>
               </div><!-- /.team-content -->
             </div><!-- /.team -->
@@ -397,10 +400,10 @@
 
               </div><!-- /.team-image -->
               <div class="team-content">
-                <div class="team-name"><a href="#">
+                <div class="team-name"><a href="https://www.facebook.com/profile.php?id=100036854923625">
                     <h5>Akshay Sharma</h5>
                 </div>
-                <div class="team-role">Developers</div>
+                <div class="team-role">Developer</div>
                 <div class="team-description"></div>
               </div><!-- /.team-content -->
             </div><!-- /.team -->
@@ -414,10 +417,10 @@
 
               </div><!-- /.team-image -->
               <div class="team-content">
-                <div class="team-name"><a href="#">
+                <div class="team-name"><a href="https://www.facebook.com/rishav.sharma.944023">
                     <h5>Rishav Sharma </h5>
                 </div>
-                <div class="team-role">Developers</div>
+                <div class="team-role">Developer</div>
                 <div class="team-description"></div>
               </div><!-- /.team-content -->
             </div><!-- /.team -->
@@ -489,8 +492,10 @@
     // }
 
     $("#register").submit(function (e) {
-      $('#buton').prop('disabled', true);
       $('#buton').html('<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i> Loading');
+      $('#buton').prop('disabled', true);
+
+
       e.preventDefault();
       var obj = {
         name: document.getElementById('name').value,
@@ -518,8 +523,11 @@
             text: 'Either your username is wrong or you are already registered',
 
           });
+        document.getElementById("register").reset();
+        $('#buton').prop('disabled', false);
+        $('#buton').html('Lets Begin');
       });
-      $('#buton').prop('disabled', false);
+
     });
 
   </script>
