@@ -54,7 +54,7 @@ module.exports = {
             `
             });
 
-            let query = `insert into Registration values (${sqlstring.escape(name)},${sqlstring.escape(username)},${sqlstring.escape(contribution)},${sqlstring.escape(year)},${sqlstring.escape(techStack)},${sqlstring.escape(email)},${sqlstring.escape(mentor)},0);`;
+            let query = `insert into Registration values (${sqlstring.escape(name)},${sqlstring.escape(username)},0,${sqlstring.escape(year)},${sqlstring.escape(techStack)},${sqlstring.escape(email)},${sqlstring.escape(mentor)},0);`;
             db.query(query, (err, result) => {
                 if (err)
                     res.send({ success: false });
