@@ -604,7 +604,7 @@
 
     $("#register").submit(function (e) {
       $('#buton').prop('disabled', true);
-      $('#buton').css('color', 'red');
+      $('#buton').html('***');
       e.preventDefault();
       var obj = {
         name: document.getElementById('name').value,
@@ -619,9 +619,19 @@
       $.post("api/register", obj, function (data, status) {
         console.log(data);
         if (data.success)
-          alert("Registered Successfully!");
+        Swal.fire(
+      'Success!',
+      'Mail is sent and Registered',
+      'success'
+    );
         else
-          alert("Either Your username is wrong or You are already registered!");
+      
+Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Either your username is wrong or you are already registered',
+  
+});
       });
       $('#buton').prop('disabled', false);
     });

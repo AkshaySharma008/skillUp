@@ -102,14 +102,3 @@ function te()
    tes(data);
 }
 
-function loading()
-{
-   const button = document.getElementById("buton");
-   button.innerHTML = "***";
-   button.disabled = true;
-   Swal.fire(
-      'Success!',
-      'Mail is sent and Registered',
-      'success'
-    )
-}
