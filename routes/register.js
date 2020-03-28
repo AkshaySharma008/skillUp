@@ -70,6 +70,12 @@ module.exports = {
         try {
             db.query(query, (err, result) => {
                 if (err) throw err;
+                sortArrayOfObjects = (arr, key) => {
+                    return arr.sort((a, b) => {
+                        return b[key] - a[key];
+                    });
+                };
+                sortArrayOfObjects(result.recordsets[0], "contributions");
                 res.send({ success: result.recordsets })
             })
         } catch (err) {
