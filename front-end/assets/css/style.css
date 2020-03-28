@@ -1360,7 +1360,7 @@ select {
 }
 
 #buton {
-  padding: 19px 39px 18px 39px;
+  padding: 19px 39px 18px 37%;
   color: #FFF;
   background-color: #4075e9;
   font-size: 18px;
@@ -1372,7 +1372,7 @@ select {
   border-width: 1px 1px 3px;
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
   margin-bottom: 10px;
-  display:flex
+  display:flex;
 }
 
 fieldset {
