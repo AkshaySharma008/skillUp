@@ -42,11 +42,21 @@
 <script>
     $.get("api/leaderboard", function (data, status) {
         let newRow;
-        let allData = new Array;
-        allData = data['success'][0];
-        allData.sort(function (a, b) {
-            return b.contributions - a.contributions;
-        });
+        let arr = new Array;
+        arr = data['success'][0];
+        // allData.sort(function (a, b) {
+        //     return b.contributions - a.contributions;
+        // });
+
+        sortArrayOfObjects = (arr, key) => {
+            return arr.sort((a, b) => {
+                return b[key] - a[key];
+            });
+        };
+
+        sortArrayOfObjects(arr, "contributions");
+
+
         for (let i = 0; i < data['success'][0].length; i++) {
 
             newRow += `
