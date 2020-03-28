@@ -470,7 +470,7 @@
 
     $("#register").submit(function (e) {
       $('#buton').prop('disabled', true);
-      // $('#buton').html('*** ');
+      $('#buton').html('<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i> Loading');
       e.preventDefault();
       var obj = {
         name: document.getElementById('name').value,
@@ -499,7 +499,7 @@ Swal.fire({
   
 });
       });
-      // $('#buton').prop('disabled', false);
+      $('#buton').prop('disabled', false);
     });
 
   </script>
