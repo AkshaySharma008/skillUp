@@ -13,19 +13,19 @@ module.exports = {
         let email = req.body.email;
         let mentor = req.body.mentor;
         let response;
-        let contribution;
+        let contribution = 0;
 
         try {
             response = await axios.get(`https://api.github.com/users/${username}`);
             if (!response.data.login)
                 throw new Error('User Not Found');
-            let site = `https://github.com/users/${username}/contributions?to=2020-03-28`;
-            const result = await axios.get(site);
-            let data = cheerio.load(result.data);
-            data = data('body > div > div > h2').text();
-            console.log(data);
-            data = data.split(" ");
-            contribution = data[6];
+            // let site = `https://github.com/users/${username}/contributions?to=2020-03-28`;
+            // const result = await axios.get(site);
+            // let data = cheerio.load(result.data);
+            // data = data('body > div > div > h2').text();
+            // console.log(data);
+            // data = data.split(" ");
+            // contribution = data[6];
 
             var transporter = nodemailer.createTransport({
                 service: 'Gmail',
